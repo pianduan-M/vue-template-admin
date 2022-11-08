@@ -5,6 +5,7 @@ specifiers:
   dayjs: ^1.11.6
   dotenv: ^16.0.3
   element-plus: ^2.2.20
+  pinia: ^2.0.23
   unplugin-auto-import: ^0.11.4
   unplugin-vue-components: ^0.22.9
   vite: ^3.2.3
@@ -16,6 +17,7 @@ specifiers:
 dependencies:
   dayjs: 1.11.6
   element-plus: 2.2.20_vue@3.2.41
+  pinia: 2.0.23_vue@3.2.41
   vue: 3.2.41
   vue-router: 4.1.6_vue@3.2.41
 
@@ -1144,6 +1146,23 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
     dev: true
+
+  /pinia/2.0.23_vue@3.2.41:
+    resolution: {integrity: sha512-N15hFf4o5STrxpNrib1IEb1GOArvPYf1zPvQVRGOO1G1d74Ak0J0lVyalX/SmrzdT4Q0nlEFjbURsmBmIGUR5Q==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      vue: 3.2.41
+      vue-demi: 0.13.11_vue@3.2.41
+    dev: false
 
   /pkg-types/0.3.6:
     resolution: {integrity: sha512-uQZutkkh6axl1GxDm5/+8ivVdwuJ5pyDGqJeSiIWIUWIqYiK3p9QKozN/Rv6eVvFoeSWkN1uoYeSDBwwBJBtbg==}
