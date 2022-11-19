@@ -3,14 +3,14 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from "vue-router";
-import { basicRoutes } from "./routes";
+import { basicRoutes,asyncRoutes } from "./routes";
 import { getToken } from "@/utils";
 import { setupRouterGuard } from "./guard";
 
 const isHash = import.meta.env.VITE_USE_HASH === "true";
 export const router = createRouter({
   history: isHash ? createWebHashHistory("/") : createWebHistory("/"),
-  routes: basicRoutes,
+  routes: [...basicRoutes,...asyncRoutes],
   scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 

@@ -8,6 +8,7 @@ import { createViteProxy, viteDefine } from "./build/config";
 export default defineConfig(({ command, mode }) => {
   const srcPath = getSrcPath();
   const rootPath = getRootPath();
+
   const isBuild = command === "build";
 
   const env = loadEnv(mode, process.cwd());
@@ -16,7 +17,7 @@ export default defineConfig(({ command, mode }) => {
     viteEnv;
 
   return {
-    base: VITE_PUBLIC_PATH || "/",
+    // base: VITE_PUBLIC_PATH || "/",
     resolve: {
       alias: {
         "@": srcPath,
@@ -36,6 +37,15 @@ export default defineConfig(({ command, mode }) => {
       outDir: "dist",
       reportCompressedSize: false, // 启用/禁用 gzip 压缩大小报告
       chunkSizeWarningLimit: 1024, // chunk 大小警告的限制（单位kb）
+    },
+    // 全局 css 注册
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: `@import "src/styles/common/style.scss";`,
+        },
+      },
     },
   };
 });

@@ -1,11 +1,17 @@
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import AutoImport from "unplugin-auto-import/vite";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { resolve } from "path";
+import { getSrcPath } from "../utils";
+
 import {
   createStyleImportPlugin,
   ElementPlusResolve,
 } from "vite-plugin-style-import";
 
+const customIconPath = resolve(getSrcPath(), "assets/icons");
+console.log(customIconPath, getSrcPath(), "customIconPath");
 export default [
   // 自动引入组件
   Components({
@@ -29,4 +35,17 @@ export default [
       // },
     ],
   }),
+  // // 自动引入 svg icon
+  // createSvgIconsPlugin({
+  //   // 指定需要缓存的图标文件夹
+  //   iconDirs: [customIconPath],
+  //   // 指定symbolId格式
+  //   symbolId: "icon-[dir]-[name]",
+  // }),
+  createSvgIconsPlugin({
+    // 指定需要缓存的图标文件夹
+    iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
+    // 指定symbolId格式
+    symbolId: 'icon-[dir]-[name]'
+  })
 ];
